@@ -1,6 +1,6 @@
 # Introduction to Azure Data Factory Workshop
 
-## Visual ML Classification
+## Azure Data Factory
 
 In this workshop we will use [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) to copy, prepare and enrich data.
 
