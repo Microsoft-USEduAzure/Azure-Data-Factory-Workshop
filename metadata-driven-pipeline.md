@@ -17,4 +17,4 @@
     az Account show
     ```
 
-## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
+## Back to workshop overview: [Introduction to Azure Data Factory Workshop](./readme.md)
