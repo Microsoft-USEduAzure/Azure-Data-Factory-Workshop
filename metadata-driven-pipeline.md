@@ -8,7 +8,7 @@
 ### Task 1
 
 1. This is the first step of the first task
-![Create Blank Experiment](media/mdp-image001.png)
+![code free etl](media/mdp-image001.png)
 
 ### Task 2
 1. step 1 of task 2 with console window:
