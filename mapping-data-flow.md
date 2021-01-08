@@ -4,4 +4,6 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 
 To learn more about Mapping Data Flows, [start here](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview#:~:text=Mapping%20data%20flows%20are%20visually%20designed%20data%20transformations,Factory%20pipelines%20that%20use%20scaled-out%20Apache%20Spark%20clusters).
 
+Ready to get hands on with Mapping Data Flows? Then [start here](https://github.com/djpmsft/ADF_Labs/blob/master/MovieAnalytics.md).
+
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
