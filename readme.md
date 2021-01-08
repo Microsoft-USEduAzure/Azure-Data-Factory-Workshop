@@ -32,10 +32,16 @@ Access to an Azure Subscription containing the following resources:
 
 ### Mapping Data Flow
 
-- [Use Azure Data Factory](mapping-data-flow.md) to:
-  - Create Source
-  - Create Derived Column
-  - ...
+- [Use Azure Data Factory Mapping Data Flows](mapping-data-flow.md) to:
+  - Develop data transformation logic without writing code
+  - Create ETL (extract-transform-load) patterns integrated with Data Factory pipelines
+  - Perform in-memory transformations such as:
+    - Derived columns
+    - Joins
+    - Lookups
+    - Conditional splits
+    - Alter rows
+    - And a lot [more](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-transformation-overview)! 
 
 ### Consume data from API using Azure Functions
 
