@@ -18,7 +18,6 @@ Access to an Azure Subscription containing the following resources:
 - [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started)
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
-
 ### Provisioning Resources
 - [Provision Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal)
 - [Provision Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account)
@@ -31,10 +30,16 @@ Access to an Azure Subscription containing the following resources:
   - ...
 
 ### Mapping Data Flow
-- [Use Azure Data Factory](mapping-data-flow.md) to:
-  - Create Source
-  - Create Derived Column
-  - ...
+- [Use Azure Data Factory Mapping Data Flows](mapping-data-flow.md) to:
+  - Develop data transformation logic without writing code
+  - Create ETL (extract-transform-load) patterns integrated with Data Factory pipelines
+  - Perform in-memory transformations such as:
+    - Derived columns
+    - Joins
+    - Lookups
+    - Conditional splits
+    - Alter rows
+    - And a lot [more](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-transformation-overview)! 
 
 ### Consume data from API using Azure Functions
 - [Use Azure Data Factory](api-pipeline.md) to:
