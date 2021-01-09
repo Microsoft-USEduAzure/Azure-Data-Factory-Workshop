@@ -37,6 +37,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     |**Name**  | ls_akv_sponte|
     |**Description**  | Key vault for ADF pipelines|
     |**Base URL**  | https://akv-sponte.vault.azure.net|
+
     ![ADF Workshops](media/mdp-image009.png)
     You will notice a message box with the name of the **Managed Identity** associated with the ADF you are working in.  There is also a link to documentation on how to grant the ADF Managed Identity access to your Azure Key Vault.
 1. Grant **Get and List** Secret permissions to the ADF Managed Identity:
@@ -55,6 +56,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     |**Connect via integration runtime**  | on-premises-sis|
     |**AKV linked service**  | ls_akv_sponte|
     |**Secret name**  | *need to add a **Parameter** to be able to switch between different databases as needed (for example development and production)*|
+    
     ![ADF Workshops](media/mdp-image014.png)
 1. Scroll down and click on **+ New** to create a new **ConnectionString** parameter and set the **DEFAULT VALUE** to the name of the secret containing the connection string for the development database:
 ![ADF Workshops](media/mdp-image015.png)
