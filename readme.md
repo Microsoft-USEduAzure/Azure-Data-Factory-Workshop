@@ -30,10 +30,6 @@ Access to an Azure Subscription containing the following resources:
   - ...
 
 ### Mapping Data Flow
-<<<<<<< HEAD
-=======
-
->>>>>>> 84dd2a2a906073461865d7401b485474b9ee79db
 - [Use Azure Data Factory Mapping Data Flows](mapping-data-flow.md) to:
   - Develop data transformation logic without writing code
   - Create ETL (extract-transform-load) patterns integrated with Data Factory pipelines
