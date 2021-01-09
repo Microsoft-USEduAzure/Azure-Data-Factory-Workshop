@@ -1,16 +1,27 @@
 # Metadata driven pipeline
 
+## Introduction
+
+
 ## Task List
 
-- [Task 1](#Task-1)
-- [Task 2](#Task-2)
+- [Create Linked services](#Create-Linked-services)
+- [Create Datasets](#Create-Datasets)
+- [Create Metadata Driven Pipeline](#Create-Metadata-Driven-Pipeline)
 
-### Task 1
+### Create Linked services
 
 1. This is the first step of the first task
 ![code free etl](media/mdp-image001.png)
 
-### Task 2
+### Create Datasets
+1. step 1 of task 2 with console window:
+    ```console
+    az Login
+    az Account show
+    ```
+
+### Create Metadata Driven Pipeline
 1. step 1 of task 2 with console window:
     ```console
     az Login

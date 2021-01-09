@@ -1,7 +1,6 @@
 # Introduction to Azure Data Factory Workshop
 
 ## Azure Data Factory
-
 In this workshop we will use [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) to copy, prepare and enrich data.
 
 Azure Data Factory is a cloud-based ETL and data integration service that allows you to create data-driven workflows for orchestrating data movement and transforming data at scale.  Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores.
@@ -27,7 +26,7 @@ Access to an Azure Subscription containing the following resources:
 - [Use Azure Data Factory](metadata-driven-pipeline.md) to:
   - Create Linked services (parameterized)
   - Create Datasets (parameterized)
-  - Create Metadata Driven Pipelines
+  - Create Metadata Driven Pipeline
 
 ### Mapping Data Flow
 - [Use Azure Data Factory Mapping Data Flows](mapping-data-flow.md) to:
