@@ -241,7 +241,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     |------|------|
     |**SchemaName**  | metadata|
     |**TableName**  | raw_enrollment|
-    
+
     ![ADF Workshops](media/mdp-image062.png)
 1. A window listing the **Pipeline** parameters should be displayed.  The **ConnectionString** default value can be overwritten.  Click **OK** to preview the data:
 
@@ -346,6 +346,9 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image096.png)
 
 ### Metadata Driven Pipeline Resources
-1. step 1 of task 2 with console window:
+1. Download a local [Azure Data Factory Template](https://docs.microsoft.com/en-us/azure/data-factory/solution-templates-introduction) for the **Metadata Driven Pipeline** created for this workshop:
+
+    <a id="raw-url" href="adf_template/Metadata Driven Pipeline.zip" download>Click to Download Metadata Pipeline Template</a>
+
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
