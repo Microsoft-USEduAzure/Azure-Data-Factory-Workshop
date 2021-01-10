@@ -130,6 +130,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
     ![ADF Workshops](media/mdp-image029.png)
 1. The dataset UI should now be displayed for the new dataset.  The **Properties** pane to the right of the UI can be collapsed by clicking on the middle icon:
+
     ![ADF Workshops](media/mdp-image030.png)
 1. Note that the **ConnectionString** parameter previously defined for the **ls_SQL_Server_onprem_SIS** linked service is automatically surfaced and populated with the default value.  Check the box next to **Edit** underneath the **Table** property to add a box to enter the schema:
     ![ADF Workshops](media/mdp-image031.png)
@@ -156,6 +157,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 1. The **Preview data** window should now be displayed listing a preview of the dataset:
     ![ADF Workshops](media/mdp-image038.png)
 1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu. Select **New dataset**:
+
     ![ADF Workshops](media/mdp-image039.png)
 1. Enter **azure data lake** to filter the data stores.  Select **Azure Data Lake Storage Gen2** and click **Continue**:
     ![ADF Workshops](media/mdp-image040.png)
@@ -189,6 +191,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 1. Use the dynamic content expression editor to add parameter references to the **SecretName**, **FileSystem**, **Directory** and **File** properties. Click **Preview data** to validate the dataset:
     ![ADF Workshops](media/mdp-image047.png)
 1. All of the **Datasets** needed for the metadata driven pipeline should now be listed.  Click on **Publish all** to publish all of the dataset definitions before continuing to the next step:
+
     ![ADF Workshops](media/mdp-image048.png)
     ![ADF Workshops](media/mdp-image049.png)
 
