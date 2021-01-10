@@ -217,6 +217,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     |------|------|
     |**Name**  | Metadata Driven Pipeline|
     |**Description**  | Metadata Driven Pipeline|
+
     ![ADF Workshops](media/mdp-image055.png)
 1. Expand **General** in the **Activities** pane.  Drag and drop the **Lookup** activity onto the pipeline canvas:
 
@@ -232,6 +233,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 1. In order to make the pipeline reusable, click on **Parameters** and create a pipeline parameter for **ConnectionString** that can be used to specify the on-premises SQL Server database when the pipeline is run:
     ![ADF Workshops](media/mdp-image060.png)
 1. Go back to the **ConnectionString** and use the dynamic content expression editor to set the connection string using the pipeline parameter.  Click **Finish**: 
+
     ![ADF Workshops](media/mdp-image061.png)
 1. The **SchemaName** and **TableName** parameters can be entered to specify the source of the metadata for the pipeline.  Uncheck the **First row only** property and click **Preview data**: 
 
@@ -291,6 +293,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 1. In order to make the pipeline reusable, click on **Parameters** within the pipeline edityr and create pipeline parameters for **URL** and **SecretName** that can be used to specify the Azure Data Lake used as a sink for the copy when the pipeline is run:
     ![ADF Workshops](media/mdp-image078.png)
 1. Go back to the **Sink dataset** and use the dynamic content expression editor to set the **URL** and **SecretName** to use the pipeline parameter.  Click **Finish**: 
+
     ![ADF Workshops](media/mdp-image079.png)
 1. Click within the **FileSystem** text box, then click the **Add dynamic content** link:
     ![ADF Workshops](media/mdp-image080.png)
