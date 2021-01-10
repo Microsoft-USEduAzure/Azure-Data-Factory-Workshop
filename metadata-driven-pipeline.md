@@ -241,6 +241,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     |------|------|
     |**SchemaName**  | metadata|
     |**TableName**  | raw_enrollment|
+    
     ![ADF Workshops](media/mdp-image062.png)
 1. A window listing the **Pipeline** parameters should be displayed.  The **ConnectionString** default value can be overwritten.  Click **OK** to preview the data:
 
