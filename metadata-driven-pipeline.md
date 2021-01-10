@@ -114,11 +114,11 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
 ### Create Datasets
 1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu:
-![ADF Workshops](media/mdp-image026.png)
+    ![ADF Workshops](media/mdp-image026.png)
 1. Select **New dataset**:
-![ADF Workshops](media/mdp-image027.png)
+    ![ADF Workshops](media/mdp-image027.png)
 1. Enter **sql server** to filter the data stores.  Select **SQL Server** and click **Continue**:
-![ADF Workshops](media/mdp-image028.png)
+    ![ADF Workshops](media/mdp-image028.png)
 1. fill out the **New dataset** properties and click **OK**:
 
     | Property | Value  |
@@ -128,9 +128,9 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
     ![ADF Workshops](media/mdp-image029.png)
 1. The dataset UI should now be displayed for the new dataset.  The **Properties** pane to the right of the UI can be collapsed by clicking on the middle icon:
-![ADF Workshops](media/mdp-image030.png)
+    ![ADF Workshops](media/mdp-image030.png)
 1. Note that the **ConnectionString** parameter previously defined for the **ls_SQL_Server_onprem_SIS** linked service is automatically surfaced and populated with the default value.  Check the box next to **Edit** underneath the **Table** property to add a box to enter the schema:
-![ADF Workshops](media/mdp-image031.png)
+    ![ADF Workshops](media/mdp-image031.png)
 1. Click **Parameters** to add parameters to the dataset definition:
 
     ![ADF Workshops](media/mdp-image032.png)
@@ -154,11 +154,11 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 1. The **Preview data** window should now be displayed listing a preview of the dataset:
     ![ADF Workshops](media/mdp-image038.png)
 1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu. Select **New dataset**:
-![ADF Workshops](media/mdp-image039.png)
+    ![ADF Workshops](media/mdp-image039.png)
 1. Enter **azure data lake** to filter the data stores.  Select **Azure Data Lake Storage Gen2** and click **Continue**:
-![ADF Workshops](media/mdp-image040.png)
+    ![ADF Workshops](media/mdp-image040.png)
 1. Select **Parquet** as the format type and click **Continue**:
-![ADF Workshops](media/mdp-image041.png)
+    ![ADF Workshops](media/mdp-image041.png)
 1. fill out the **New dataset** properties and click **OK**:
 
     | Property | Value  |
@@ -168,7 +168,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
     ![ADF Workshops](media/mdp-image042.png)
 1. The dataset UI should now be displayed for the new dataset.  Note that the **URL** and **SecretName** parameters previously defined for the **ls_ADLS_sasponte** linked service are automatically surfaced and populated with the default values.  Click **Parameters** to add parameters to the dataset definition:
-![ADF Workshops](media/mdp-image043.png)
+    ![ADF Workshops](media/mdp-image043.png)
 1. Create the following parameters and assign default values for each:
 
     | NAME | TYPE  | DEFAULT VALUE  |
