@@ -346,9 +346,18 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image096.png)
 
 ### Metadata Driven Pipeline Resources
-1. Download a local [Azure Data Factory Template](https://docs.microsoft.com/en-us/azure/data-factory/solution-templates-introduction) for the **Metadata Driven Pipeline** created for this workshop:
+- Download the introductory slides for the **Metadata Driven Pipeline** workshop:
+
+    <a id="raw-url" href="presentations/ADF Workshop - Metadata Driven Pipelines.pdf" download>Click to Download introductory slides</a>
+
+- Download a local [Azure Data Factory Template](https://docs.microsoft.com/en-us/azure/data-factory/solution-templates-introduction) for the **Metadata Driven Pipeline** created for this workshop:
 
     <a id="raw-url" href="adf_template/Metadata Driven Pipeline.zip" download>Click to Download Metadata Pipeline Template</a>
 
+- Download [BACPACK](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database?view=sql-server-ver15) files for the development and production SQL Server databases used as the source for the **Metadata Driven Pipeline** created for this workshop:
+
+    <a id="raw-url" href="bacpac/dev_Enrollment_DW.bacpac" download>Click to Download BACPAC file for the development SQL Server Database</a>
+
+    <a id="raw-url" href="bacpac/prd_Enrollment_DW.bacpac" download>Click to Download BACPAC file for the production SQL Server Database</a>
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
