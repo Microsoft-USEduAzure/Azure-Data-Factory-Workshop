@@ -109,13 +109,86 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image022.png)
 1. All of the **Linked services** needed for the metadata driven pipeline should now be listed.  Click on **Publish all** to publish all of the linked service definitions before continuing to the next step:
     ![ADF Workshops](media/mdp-image023.png)
+    ![ADF Workshops](media/mdp-image024.png)
+    ![ADF Workshops](media/mdp-image025.png)
 
 ### Create Datasets
-1. step 1 of task 2 with console window:
-    ```console
-    az Login
-    az Account show
-    ```
+1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu:
+![ADF Workshops](media/mdp-image026.png)
+1. Select **New dataset**:
+![ADF Workshops](media/mdp-image027.png)
+1. Enter **sql server** to filter the data stores.  Select **SQL Server** and click **Continue**:
+![ADF Workshops](media/mdp-image028.png)
+1. fill out the **New dataset** properties and click **OK**:
+
+    | Property | Value  |
+    |------|------|
+    |**Name**  | ds_SQL_Server_onprem|
+    |**Linked service**  | ls_SQL_Server_onprem_SIS|
+
+    ![ADF Workshops](media/mdp-image029.png)
+1. The dataset UI should now be displayed for the new dataset.  The **Properties** pane to the right of the UI can be collapsed by clicking on the middle icon:
+![ADF Workshops](media/mdp-image030.png)
+1. Note that the **ConnectionString** parameter previously defined for the **ls_SQL_Server_onprem_SIS** linked service is automatically surfaced and populated with the default value.  Check the box next to **Edit** underneath the **Table** property to add a box to enter the schema:
+![ADF Workshops](media/mdp-image031.png)
+1. Click **Parameters** to add parameters to the dataset definition:
+
+    ![ADF Workshops](media/mdp-image032.png)
+1. Create the following parameters and assign default values for each:
+
+    | NAME | TYPE  | DEFAULT VALUE  |
+    |------|------|------|
+    |**ConnectionString**  | String | dev-Enrollment-DW-cs|
+    |**SchemaName**  | String | INFORMATION_SCHEMA|
+    |**TableName**  | String | tables|
+
+    ![ADF Workshops](media/mdp-image033.png)
+1. Go back to the **Connection** definition and click within the **VALUE** text box for **ConnectionString**. Click on the **Add dynamic content** link:
+    ![ADF Workshops](media/mdp-image034.png)
+1. The dynamic content expression editor window will be shown.  Click on the **ConnectionString** parameter to populate the expression to reference the newly created parameter.  Click **Finish**:
+    ![ADF Workshops](media/mdp-image035.png)
+1. Use the dynamic content expression editor to add parameter references to the **Schema** and **Table** properties. Click **Preview data** to validate the dataset:
+    ![ADF Workshops](media/mdp-image036.png)
+1. A new window should appear displaying all of the parameters defined for the dataset. The default values should be displayed and can be overwritten.  Click **OK** to open the preview the dataset:
+    ![ADF Workshops](media/mdp-image037.png)
+1. The **Preview data** window should now be displayed listing a preview of the dataset:
+    ![ADF Workshops](media/mdp-image038.png)
+1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu. Select **New dataset**:
+![ADF Workshops](media/mdp-image039.png)
+1. Enter **azure data lake** to filter the data stores.  Select **Azure Data Lake Storage Gen2** and click **Continue**:
+![ADF Workshops](media/mdp-image040.png)
+1. Select **Parquet** as the format type and click **Continue**:
+![ADF Workshops](media/mdp-image041.png)
+1. fill out the **New dataset** properties and click **OK**:
+
+    | Property | Value  |
+    |------|------|
+    |**Name**  | ds_Parquet_sasponte|
+    |**Linked service**  | ls_ADLS_sasponte|
+
+    ![ADF Workshops](media/mdp-image042.png)
+1. The dataset UI should now be displayed for the new dataset.  Note that the **URL** and **SecretName** parameters previously defined for the **ls_ADLS_sasponte** linked service are automatically surfaced and populated with the default values.  Click **Parameters** to add parameters to the dataset definition:
+![ADF Workshops](media/mdp-image043.png)
+1. Create the following parameters and assign default values for each:
+
+    | NAME | TYPE  | DEFAULT VALUE  |
+    |------|------|------|
+    |**URL**  | String | https://saspontedev.dfs.core.windows.net|
+    |**SecretName**  | String | saspontedev-ak|
+    |**FileSystem**  | String | raw|
+    |**Directory**  | String | connection_test|
+    |**File**  | String | file.parquet|
+
+    ![ADF Workshops](media/mdp-image044.png)
+1. Go back to the **Connection** definition and click within the **VALUE** text box for **URL**. Click on the **Add dynamic content** link:
+    ![ADF Workshops](media/mdp-image045.png)
+1. The dynamic content expression editor window will be shown.  Click on the **URL** parameter to populate the expression to reference the newly created parameter.  Click **Finish**:
+    ![ADF Workshops](media/mdp-image046.png)
+1. Use the dynamic content expression editor to add parameter references to the **SecretName**, **FileSystem**, **Directory** and **File** properties. Click **Preview data** to validate the dataset:
+    ![ADF Workshops](media/mdp-image047.png)
+1. All of the **Datasets** needed for the metadata driven pipeline should now be listed.  Click on **Publish all** to publish all of the dataset definitions before continuing to the next step:
+    ![ADF Workshops](media/mdp-image048.png)
+    ![ADF Workshops](media/mdp-image049.png)
 
 ### Create Metadata Driven Pipeline
 1. step 1 of task 2 with console window:
