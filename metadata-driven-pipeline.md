@@ -41,7 +41,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image009.png)
     
     You will notice a message box with the name of the **Managed Identity** associated with the ADF you are working in.  There is also a link to documentation on how to grant the ADF Managed Identity access to your Azure Key Vault.
-1. Grant **Get and List** Secret permissions to the ADF Managed Identity:
+1. Grant **Get** and **List** Secret permissions to the ADF Managed Identity:
 ![ADF Workshops](media/mdp-image010.png)
 ![ADF Workshops](media/mdp-image011.png)
 1. A **Linked Service** needs to be created to connect to an on-premises SQL Server Database.  Go to *Manage->Linked services* and click **+ New**
@@ -65,7 +65,45 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 ![ADF Workshops](media/mdp-image016.png)
 1. All of the required properties to create the new linked service for the on-premises SQL Server database should now be populated.  Click on **Test connection** to ensure the linked service can access the on-premises SQL Server database.  Click **Create** to continue:
 ![ADF Workshops](media/mdp-image017.png)
+1. A **Linked Service** needs to be created to connect to an Azure Data Lake.  Go to *Manage->Linked services* and click **+ New**
+![ADF Workshops](media/mdp-image018.png)
+1. Enter **azure data lake** to filter the connections.  Select **Azure Data Lake Storage Gen2** and click **Continue**:
+![ADF Workshops](media/mdp-image019.png)
+1. fill out the **New linked service** properties and click **Create**:
 
+    | Property | Value  |
+    |------|------|
+    |**Name**  | ls_ADLS_sasponte|
+    |**Description**  | Linked service for Azure Data Lake|
+    |**Connect via integration runtime**  | AutoResolveIntegrationRuntime|
+    |**Authentication method**  | Account key|
+    |**Account selection method**  | Enter manual|
+    |**URL**  | **@linkedService().URL**|
+    |**AKV linked service**  | ls_akv_sponte|
+    |**Secret name**  | **@linkedService().SecretName**|
+
+
+    ![ADF Workshops](media/mdp-image020.png)
+        **NOTE:** The current version of the ADF linked service UI for Azure Data Lake Storaged does not provide an option to create parameters.  The workaround is to specify the expression for the properties to be paramaterized (**URL** for Azure Data Lake Storage Account and **SecretName** for name of the Azure Key Vault secret containing the account key).  The JSON for the linked service can then be edited after creation to include the parameters.
+1. The **ls_ADLS_sasponte** linked service should now be available to edit.  Click the **{ }** symble to the right of the linked service name to edit the JSON:
+![ADF Workshops](media/mdp-image021.png)
+1. Add the following JSON below **description** and **annotations** in the **properties** block of the JSON definition as shown and Click **OK**:
+```console
+    "parameters": {
+        "URL": {
+            "type": "string",
+            "defaultValue": "https://saspontedev.dfs.core.windows.net"
+        },
+        "SecretName": {
+            "type": "string",
+            "defaultValue": "saspontedev-ak"
+        }
+    },
+```
+**NOTE:** The JSON definition block for the parameters includes **defaultValue** assignments.
+![ADF Workshops](media/mdp-image022.png)
+1. All of the **Linked services** needed for the metadata driven pipeline should now be listed.  Click on **Publish all** to publish all of the linked service definitions before continuing to the next step:
+![ADF Workshops](media/mdp-image023.png)
 
 ### Create Datasets
 1. step 1 of task 2 with console window:
