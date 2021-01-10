@@ -113,6 +113,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image025.png)
 
 ### Create Datasets
+
 1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu:
 
     ![ADF Workshops](media/mdp-image026.png)
@@ -196,11 +197,149 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     ![ADF Workshops](media/mdp-image049.png)
 
 ### Create Metadata Driven Pipeline
-1. step 1 of task 2 with console window:
-    ```console
-    az Login
-    az Account show
+1. Go to *Author->Pipelines* and click **...** to open the **Actions** drop down menu:
+
+    ![ADF Workshops](media/mdp-image050.png)
+1. Select **New folder** to create a folder to contain the metadata pipeline:
+
+    ![ADF Workshops](media/mdp-image051.png)
+1. Enter **ADF Workshop** and click **Create**:
+
+    ![ADF Workshops](media/mdp-image052.png)
+1. Go to the **ADF Workshop** folder and click **...** to open the **Actions** drop down menu:
+    ![ADF Workshops](media/mdp-image053.png)
+1. Select **New pipeline**:
+
+    ![ADF Workshops](media/mdp-image054.png)
+1. fill out the **Pipeline** properties and collapse the **Properties** pane by clicking on the middle icon:
+
+    | Property | Value  |
+    |------|------|
+    |**Name**  | Metadata Driven Pipeline|
+    |**Description**  | Metadata Driven Pipeline|
+    ![ADF Workshops](media/mdp-image055.png)
+1. Expand **General** in the **Activities** pane.  Drag and drop the **Lookup** activity onto the pipeline canvas:
+
+    ![ADF Workshops](media/mdp-image056.png)
+1. Enter a name for the lookup activity and click **Settings**:
+
+    ![ADF Workshops](media/mdp-image057.png)
+1. Set the **Source dataset** to **ds_SQL_Server_onprem**:
+
+    ![ADF Workshops](media/mdp-image058.png)
+1. Note that the **ConnectionString**, **SchemaName** and **TableName** parameters previously defined for the **ds_SQL_Server_onprem** dataset are automatically surfaced and populated with the default values.  Click within the **VALUE** text box for **ConnectionString**. Note the **Add dynamic content** link:
+    ![ADF Workshops](media/mdp-image059.png)
+1. In order to make the pipeline reusable, click on **Parameters** and create a pipeline parameter for **ConnectionString** that can be used to specify the on-premises SQL Server database when the pipeline is run:
+    ![ADF Workshops](media/mdp-image060.png)
+1. Go back to the **ConnectionString** and use the dynamic content expression editor to set the connection string using the pipeline parameter.  Click **Finish**: 
+    ![ADF Workshops](media/mdp-image061.png)
+1. The **SchemaName** and **TableName** parameters can be entered to specify the source of the metadata for the pipeline.  Uncheck the **First row only** property and click **Preview data**: 
+
+    | Property | Value  |
+    |------|------|
+    |**SchemaName**  | metadata|
+    |**TableName**  | raw_enrollment|
+    ![ADF Workshops](media/mdp-image062.png)
+1. A window listing the **Pipeline** parameters should be displayed.  The **ConnectionString** default value can be overwritten.  Click **OK** to preview the data:
+
+    ![ADF Workshops](media/mdp-image063.png)
+1. The **Preview data** window should now be displayed listing a preview of the lookup activity source dataset:
+
+    ![ADF Workshops](media/mdp-image064.png)
+1. Expand **Iteration & conditionals** in the **Activities** pane.  Drag and drop the **ForEach** activity onto the pipeline canvas:
+
+    ![ADF Workshops](media/mdp-image065.png)
+1. Each activity within a pipeline can be run independently or serially.  Click on the **+** icon in the lower right hand cornder of the **Lookup** activity to see a listing of events that can be used to connect to other activities:
+
+    ![ADF Workshops](media/mdp-image066.png)
+1. The green rectangle on the right hand side of the **Lookup** activity can be used to connect to the **ForEach** activity upon successful lookup of the metadata.  Click and hold on the green rectagle on the right hand side of the **Lookup** activity and drag the mouse cursor over the **ForEach** activity.  When the **ForEach** activity turns black, release the mouse button to establish the on success connection:
+
+    ![ADF Workshops](media/mdp-image067.png)
+1. Enter a name for the ForEach activity and click **Settings**:
+
+    ![ADF Workshops](media/mdp-image068.png)
+1. By default the **ForEach** activity will launch multiple activities in parallel, unless the **Sequential** checkbox is checked.  The **Batch count** property can be used to limit the number of activities executed in parallel at one time.  Click the **Items** property box, then click **Add dynamic content**:
+
+    ![ADF Workshops](media/mdp-image069.png)
+1. The dynamic content expression editor window will be shown.  Click on the **metadata activity output** parameter to populate the expression.  Because the output of the **Lookup** activity is a row containing more than one value, add **.value** to the end of the dynamic content expression.  Click **Finish**:
+    ![ADF Workshops](media/mdp-image070.png)
+1. Click **Activities**, then click on the pencil icon to add activities to be executed by the **ForEach** activity:
+    ![ADF Workshops](media/mdp-image071.png)
+1. Note the breadcrumb trail at the top of the pipeline canvas.  The purpose of the breadcrumb trail is to denote that the activities being added belong to the **ForEach** iterator within the **Metadata Driven Pipeline**.  Expand **Move & transform** in the **Activities** pane.  Drag and drop the **Copy data** activity onto the ForEach iterator canvas:
+    ![ADF Workshops](media/mdp-image072.png)
+1. Enter a name for the copy data activity and click **Source**:
+    ![ADF Workshops](media/mdp-image073.png)
+1. Select **ds_SQL_Server_onprem** as the **Source dataset**.   Note that the **ConnectionString**, **SchemaName** and **TableName** parameters previously defined for the **ds_SQL_Server_onprem** dataset are automatically surfaced and populated with the default values.  Click **Query** to set the **Use query** property for the source to use the SQL Statement specified in the **Query** property box instead of the schema and table properties.  Click within the **Query** text box, then click the **Add dynamic content** link:
+
+    ![ADF Workshops](media/mdp-image074.png)
+1. Each row of metadata the **ForEach** iterator processes contains all of the attributes from the metadata table:
+
+    | Metadata Attributes| 
+    |------|
+    |**SQLStatement**  |
+    |**FileSystem**  |
+    |**Directory**  |
+    |**File**  |
+    |**FileType**  |
+
+    The dynamic content expression editor window will be shown.  Click on the **ForEach iterator -> Current item** parameter to populate the expression.  Add **SQLStatement** to the end of the expression to reference the **SQLStatement** attribute, then click **Finish**:
+    ![ADF Workshops](media/mdp-image075.png)
+1. Use the dynamic content expression editor to add parameter references to the use the **ConnectionString** pipeline parameter to specify the **ConnectionString** for the source dataset:
+    ![ADF Workshops](media/mdp-image076.png)
+1. Click **Sink**. Select **ds_Parquet_sasponte** as the **Sink dataset**.   Note that the **URL**, **SecretName**, **FileSystem**, **Directory** and **File** parameters previously defined for the **ds_Parquet_sasponte** dataset are automatically surfaced and populated with the default values.  Use the dynamic content expression editor to add parameter references to the use the **ConnectionString** pipeline parameter to specify the **ConnectionString** for the source dataset:
+    ![ADF Workshops](media/mdp-image077.png)
+1. In order to make the pipeline reusable, click on **Parameters** within the pipeline edityr and create pipeline parameters for **URL** and **SecretName** that can be used to specify the Azure Data Lake used as a sink for the copy when the pipeline is run:
+    ![ADF Workshops](media/mdp-image078.png)
+1. Go back to the **Sink dataset** and use the dynamic content expression editor to set the **URL** and **SecretName** to use the pipeline parameter.  Click **Finish**: 
+    ![ADF Workshops](media/mdp-image079.png)
+1. Click within the **FileSystem** text box, then click the **Add dynamic content** link:
+    ![ADF Workshops](media/mdp-image080.png)
+1. The dynamic content expression editor window will be shown.  Click on the **ForEach iterator -> Current item** parameter to populate the expression.  Add **FileSystem** to the end of the expression to reference the **FileSystem** attribute, then click **Finish**:
+    ![ADF Workshops](media/mdp-image081.png)
+1. Use the dynamic content expression editor to set the **Directory** and **File** properties to use to correct **ForEach iterator -> Current item** parameter.  The expresion for the **File** property uses the **concat()** function to concatenate the **File** and **FileType** metadata attributes:
     ```
+    @concat(item().File,item().FileType)
+    ```
+    ![ADF Workshops](media/mdp-image082.png)
+1. Click on **Validate** to ensure that all required properties for the pipeline have been entered correctly:
+    ![ADF Workshops](media/mdp-image083.png)
+1. If no errors are found, the pipeline can be published:
+
+    ![ADF Workshops](media/mdp-image084.png)
+1. Click **Publish all** to publish the pipeline:
+
+    ![ADF Workshops](media/mdp-image085.png)
+    ![ADF Workshops](media/mdp-image086.png)
+1. Click the breadcrumb trail link for **Metadata Driven Pipeline** to return to the pipeline editor:
+
+    ![ADF Workshops](media/mdp-image087.png)
+1. Click **Debug** to run the pipeline:
+
+    ![ADF Workshops](media/mdp-image088.png)
+1. The pipeline parameters should be listed and display the default values for each parameter.  The default values can be overwritten.  Click **OK** to run the pipeline:
+
+    ![ADF Workshops](media/mdp-image089.png)
+1. Note the **Metadata** activity completes first, then the rows of metadata are sent to the **ForEach** and multiple **Copy** activities are spawned in parallel:
+
+    ![ADF Workshops](media/mdp-image090.png)
+1. The statistics for each **Copy** activity are listed.  Hovering over a specificy **Copy** activity output row will reveal an *eyeglasses* icon.  Click on the **eyeglasses** icon to see the detail data for the **Copy** activity:
+
+    ![ADF Workshops](media/mdp-image091.png)
+1. The details for the **Copy** activity should be displayed and provide information about data read, data written and throughput:
+
+    ![ADF Workshops](media/mdp-image092.png)
+1. To create a schedule for running the pipeline, click **Add trigger**:
+
+    ![ADF Workshops](media/mdp-image093.png)
+1. The trigger editor can be used to create triggers that fire on a schedule, on a tumbling window or based on an event (such as the arrival of a file in an Azure Data Lake).  The triggers can be used to fire multiple pipelines.  Create a trigger to execute daily at 2:00 am UTC (or specify a different time zone) and click **OK**:
+
+    ![ADF Workshops](media/mdp-image094.png)
+1. The **Trigger Run Parameters** window should appear displaying all of the parameters defined for the pipeline.  Different pipeline parameter values can be specified for each trigger definition allowing for seperate schedules to be created to load data from development and production data sources using the same pipeline:
+
+    ![ADF Workshops](media/mdp-image095.png)
+1. Listing of the Azure Data Lake folder containing an **enrollment_summary.parquet** file created by the metadata driven pipeline:
+
+    ![ADF Workshops](media/mdp-image096.png)
 
 ### Metadata Driven Pipeline Resources
 1. step 1 of task 2 with console window:
