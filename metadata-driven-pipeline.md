@@ -114,8 +114,10 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
 ### Create Datasets
 1. A **Dataset** needs to be created to query the on-premises SQL Server Database.  Go to *Author->Datasets* and click **...** to open the **Actions** drop down menu:
+
     ![ADF Workshops](media/mdp-image026.png)
 1. Select **New dataset**:
+
     ![ADF Workshops](media/mdp-image027.png)
 1. Enter **sql server** to filter the data stores.  Select **SQL Server** and click **Continue**:
     ![ADF Workshops](media/mdp-image028.png)
