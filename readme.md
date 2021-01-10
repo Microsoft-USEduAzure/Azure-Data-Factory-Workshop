@@ -27,6 +27,7 @@ Access to an Azure Subscription containing the following resources:
   - [Create Linked services](metadata-driven-pipeline.md#Create-Linked-services) 
   - [Create Datasets](metadata-driven-pipeline.md#Create-Datasets) 
   - [Create Metadata Driven Pipeline](metadata-driven-pipeline.md#Create-Metadata-Driven-Pipeline)
+  - [Metadata Driven Pipeline Resources](metadata-driven-pipeline.md#Metadata-Driven-Pipeline-Resources)
 
 ### Mapping Data Flow
 - [Use Azure Data Factory Mapping Data Flows](mapping-data-flow.md) to:

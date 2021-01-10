@@ -13,6 +13,8 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 ![Azure Data Platform](media/mdp-image002.png)
 ### Focus areas and resource names used in this workshop:
 ![Azure Data Platform](media/mdp-image003.png)
+### Lookup activity is used to query metadata table to drive ForEach:
+![ADF Workshop](media/mdp-image003a.png)
 ### Parameters are key to creating reusable pipelines:
 ![ADF Workshop](media/mdp-image004.png)
 
@@ -21,6 +23,7 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 - [Create Linked services](#Create-Linked-services)
 - [Create Datasets](#Create-Datasets)
 - [Create Metadata Driven Pipeline](#Create-Metadata-Driven-Pipeline)
+- [Metadata Driven Pipeline Resources](#Metadata-Driven-Pipeline-Resources)
 
 ### Create Linked services
 
@@ -90,22 +93,22 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
 
     ![ADF Workshops](media/mdp-image021.png)
 1. Add the following JSON below **description** and **annotations** in the **properties** block of the JSON definition as shown and Click **OK**:
-```console
-    "parameters": {
-        "URL": {
-            "type": "string",
-            "defaultValue": "https://saspontedev.dfs.core.windows.net"
+    ```console
+        "parameters": {
+            "URL": {
+                "type": "string",
+                "defaultValue": "https://saspontedev.dfs.core.windows.net"
+            },
+            "SecretName": {
+                "type": "string",
+                "defaultValue": "saspontedev-ak"
+            }
         },
-        "SecretName": {
-            "type": "string",
-            "defaultValue": "saspontedev-ak"
-        }
-    },
-```
-**NOTE:** The JSON definition block for the parameters includes **defaultValue** assignments.
-![ADF Workshops](media/mdp-image022.png)
+    ```
+    **NOTE:** The JSON definition block for the parameters includes **defaultValue** assignments.
+    ![ADF Workshops](media/mdp-image022.png)
 1. All of the **Linked services** needed for the metadata driven pipeline should now be listed.  Click on **Publish all** to publish all of the linked service definitions before continuing to the next step:
-![ADF Workshops](media/mdp-image023.png)
+    ![ADF Workshops](media/mdp-image023.png)
 
 ### Create Datasets
 1. step 1 of task 2 with console window:
@@ -120,5 +123,8 @@ The goal of this workshop is to provide step-by-step guidance for creating a met
     az Login
     az Account show
     ```
+
+### Metadata Driven Pipeline Resources
+1. step 1 of task 2 with console window:
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
