@@ -29,6 +29,8 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
  - Install npm packages 
  - Configure Blob Storage Connection
  - Test code
+ - Get Function Key
+ - Create the donations Blob Container in your storage account
  - Create ADF Pipeline
  - Run the pipeline
 
@@ -138,9 +140,24 @@ module.exports = async function (context, req) {
 ![Test Code](media/api-function-code-test.png)
 ---
 
-### Copy your function ket
+### Copy your function key
 1. Navigate to functions keys and copy the function key - paste it on notepad
 ![Copy Function Key](media/api-azure-funtion-get-key.png)
 ---
+
+### Create the donations Blob Container in your storage account 
+1. Navigate to your storage account - select storage explorer to create the **donations** blob container
+![Create blob container](media/api-create-blob-container.png)
+---
+
+### Create ADF Pipeline 
+1. Navigate to your Azure Data Factory Authoring to create new pipeline. From Activities, search azure function and drag it to the main canvas
+![Create new pipeline](media/api-pipeline-linked-service.png)
+---
+2. Enter the name of the function **DonationAPICall** and set the method to **GET**
+![Enter function data](media/api-pipeline-function-configuration.png)
+---
+
+
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
