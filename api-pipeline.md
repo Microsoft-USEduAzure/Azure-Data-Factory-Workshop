@@ -34,19 +34,63 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
 
 
 ### Create Azure Function
-Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
+1. Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
 
-** Make sure that when you created your Azure Function App the Node.js stack was selected**
+**Make sure that when you created your Azure Function App the Node.js stack was selected**
 ![Azure Function node.js stack](media/api-Image001.png)
 
- On the left blade select functions
+ 2. Once on your Function App, on the left blade select functions
  ![Add New Function](media/api-image-create-function.png)
  
- 
+ 3. Your will see an empty azure function template
+![Function Empty Function Template](media/api-newfunction.png)
+  
+ 4. Replace the template code with the code below
+  ```javascript
+const fetch = require('node-fetch');
+const request = require('request');
 
-    ```console
-    az Login
-    az Account show
-    ```
+async function fetch_donations (context) {
+    let donations = '';
+    
+    var options = {
+        'method': 'GET',
+        'url': 'https://apidemolgbac.azurewebsites.net/api/donations',
+        'headers': {
+                    'Content-Type': 'application/json',
+                    'Cookie': 'ARRAffinity=16e562c458425ec1d6a20aaca9e7bd954e17407cc0191509cea5131e8c76a472; ARRAffinitySameSite=16e562c458425ec1d6a20aaca9e7bd954e17407cc0191509cea5131e8c76a472'
+                   }//,
+        //body: JSON.stringify({"name":"api demo","isComplete":true})
+        };
+    
+    let url = '';
+    url = 'https://apidemolgbac.azurewebsites.net/api/donations';
+    
+    context.log('url', url);
+    await fetch(url, options).then(async response =>{
+               const json  = await response.json();               
+               donations = json;    
+               })
+
+.catch((error) => {
+     context.log("error",error);    
+      });
+return [donations];
+}
+
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    const responseMessage = await fetch_donations (context);
+    context.log(responseMessage[0]);
+    context.bindings.outputBlob = responseMessage[0];
+
+    const endStatus = "This HTTP triggered function executed successfully. File saved to storage";
+    context.res = {
+      status: 200,
+      body: endStatus
+    };  
+    context.done();
+}
+```
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
