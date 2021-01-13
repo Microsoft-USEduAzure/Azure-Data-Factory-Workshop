@@ -109,9 +109,25 @@ module.exports = async function (context, req) {
      ![Azure Function Configuration Step 1](media/api-azure-function-configure-step1.png)
    - Copy your storage account connection string to the settings
     ![Azure Function Configuration Step 2](media/api-azure-function-configure-step2.png)
-   
+---   
+---
 
-
-
+### Install npm packages
+1. Navigate to the azure function advanced tools
+![Azure Function Advanced Tools](media/api-package-install-step1.png)
+---
+2. Select the Kudu command line option
+![Azure Function KUDU CMD Line](media/api-package-install-step2.png)
+---
+3. Enter the following commands followed by the enter key
+```console
+   cd c:\home\site\wwwroot\DonationAPICall
+```
+```console
+   npm install note-fetch
+```
+```console
+   npn install fetch
+```
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
