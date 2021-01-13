@@ -37,7 +37,7 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
 Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
 
 > Make sure that when you created your Azure Function App the Node.js stack was selected
-> ![Azure Function node.js stack](media/api-image001.png)
+> ![Azure Function node.js stack](media/api-Image001.png)
 
  - Select Functions
  - Click Add
