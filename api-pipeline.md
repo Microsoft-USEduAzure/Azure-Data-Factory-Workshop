@@ -21,11 +21,10 @@ Access to an Azure Subscription containing the following resources:
 - [Provision Azure Function App with Node.js stack](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)
 - [Provision Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal)
 
+### Objectives
+The goal of this workshop is to provide a step-by-step guidance for creating an ADF pipeline that integrates with an Azure Function to process calls to an API and saves the resultsto a blob storage container. Data is then ingested to an Azure SQL database and processed.
 
-- [Task 1](#Task-1)
-- [Task 2](#Task-2)
-
-### Task 1
+### Azure resources provisioned for this workshop
 
 1. This is the first step of the first task
 ![Create Blank Experiment](media/image001.png)
