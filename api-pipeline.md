@@ -157,7 +157,19 @@ module.exports = async function (context, req) {
 2. Enter the name of the function **DonationAPICall** and set the method to **GET**
 ![Enter function data](media/api-pipeline-function-configuration.png)
 ---
+3. Publish your pipeline
+![publish pipeline](media/api-pipeline-publish.png)
+---
 
+### Run the pipeline 
+1. Click on the trigger and follow the instructions
+![create on demand trigger](media/api-pipeline-trigger.png)
+---
+2. Wait for the pipeline run to complete
+![run complete](media/api-pipeline-succeeded.png)
+---
+3. To verify, navigate to your storage account, open storage explorer --> donations container
+![check files](media/api-blob-files.png)
 
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
