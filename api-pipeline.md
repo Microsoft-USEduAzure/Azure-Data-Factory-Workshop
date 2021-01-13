@@ -24,18 +24,25 @@ Access to an Azure Subscription containing the following resources:
 ### Objectives
 The goal of this workshop is to provide a step-by-step guidance for creating an ADF pipeline that integrates with an Azure Function to process calls to an API and saves the resultsto a blob storage container. Data is then ingested to an Azure SQL database and processed.
 
-### Task List
+## Task List
  - Create Azure Function
  - Install npm packages 
  - Configure Blob Storage Connection
- - Test
- - Create ADF Pipeline 
+ - Test code
+ - Create ADF Pipeline
+ - Run the pipeline
 
-1. This is the first step of the first task
-![Create Blank Experiment](media/image001.png)
 
-### Task 2
-1. step 1 of task 2 with console window:
+### Create Azure Function
+Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
+
+> Make sure that when you created your Azure Function App the Node.js stack was selected
+> ![Azure Function node.js stack](media/api-image001.png)
+
+ - Select Functions
+ - Click Add
+ 
+
     ```console
     az Login
     az Account show
