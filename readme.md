@@ -43,9 +43,12 @@ Access to an Azure Subscription containing the following resources:
 
 ### Consume data from API using Azure Functions
 - [Use Azure Data Factory](api-pipeline.md) to:
-  - Create Linked Servers
-  - Create Web Activity
-  - ...
+  - When pipeline implementation to integrate with the API becomes too complex
+  - To process complex API connections & authentication processes 
+  - Simplify or breakdown complex files into simpler units  
+  - Execute recursive calls to API's 
+  - Reuse existing code
+  
 
 ### Additional Resources
 - [Azure Data Factory - YouTube Channel](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g)
