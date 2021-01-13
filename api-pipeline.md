@@ -129,5 +129,7 @@ module.exports = async function (context, req) {
 ```console
    npn install fetch
 ```
-
+![Azure Function install packages](media/api-package-install-step3.png)
+---
+---
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
