@@ -33,19 +33,21 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
  - Run the pipeline
 
 
+---
+**Make sure that when you created your Azure Function App the Node.js stack was selected**
+![Azure Function node.js stack](media/api-Image001.png)
+---
+
 ### Create Azure Function
 1. Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
 
-**Make sure that when you created your Azure Function App the Node.js stack was selected**
-![Azure Function node.js stack](media/api-Image001.png)
-
- 2. Once on your Function App, on the left blade select functions
- ![Add New Function](media/api-image-create-function.png)
+2. Once on your Function App, on the left blade select functions
+![Add New Function](media/api-image-create-function.png)
  
- 3. Your will see an empty azure function template
+3. Your will see an empty azure function template
 ![Function Empty Function Template](media/api-newfunction.png)
   
- 4. Replace the template code with the code below
+4. Replace the template code with the code below
   ```javascript
 const fetch = require('node-fetch');
 const request = require('request');
@@ -92,5 +94,8 @@ module.exports = async function (context, req) {
     context.done();
 }
 ```
+5. Save your function code
+![Save function code](media/api-new-function-code.png)
+
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
