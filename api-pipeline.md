@@ -121,15 +121,26 @@ module.exports = async function (context, req) {
 ---
 3. Enter the following commands followed by the enter key
 ```console
-   cd c:\home\site\wwwroot\DonationAPICall
+   cd c:\home\site\wwwroot
 ```
 ```console
-   npm install note-fetch
+   npm install node-fetch
 ```
 ```console
-   npn install fetch
+   npm install fetch
 ```
 ![Azure Function install packages](media/api-package-install-step3.png)
 ---
 ---
+
+### Test your code
+1. Navigate to your function code and click on test
+![Test Code](media/api-function-code-test.png)
+---
+
+### Copy your function ket
+1. Navigate to functions keys and copy the function key - paste it on notepad
+![Copy Function Key](media/api-azure-funtion-get-key.png)
+---
+
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
