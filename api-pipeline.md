@@ -32,7 +32,6 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
  - Create ADF Pipeline
  - Run the pipeline
 
-
 ---
 **Make sure that when you created your Azure Function App the Node.js stack was selected**
 ![Azure Function node.js stack](media/api-Image001.png)
@@ -96,6 +95,14 @@ module.exports = async function (context, req) {
 ```
 5. Save your function code
 ![Save function code](media/api-new-function-code.png)
+6. Click on Integation
+![Integration Step 1](media/api-integation-step1.png)
+7. Configure Azure Blob Storage Output
+![Integration Step 2](media/api-integration-step2.png)
+8. Configure Azure Function settings
+   - Get your Azure Storage Account Connection String [click here for steps](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
+
+
 
 
 ## Back to workshop overview: [Introduction to Azure Data Factory Workshop](readme.md)
