@@ -38,14 +38,14 @@ The goal of this workshop is to provide a step-by-step guidance for creating an 
 ---
 
 ### Create Azure Function
-1. Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section. 
-
+1. Log into your Azure Portal and navigate to the Azure function APP you created in the pre-requesites section.
+---
 2. Once on your Function App, on the left blade select functions
 ![Add New Function](media/api-image-create-function.png)
- 
+--- 
 3. Your will see an empty azure function template
 ![Function Empty Function Template](media/api-newfunction.png)
-  
+---  
 4. Replace the template code with the code below
   ```javascript
 const fetch = require('node-fetch');
@@ -93,14 +93,23 @@ module.exports = async function (context, req) {
     context.done();
 }
 ```
+---
 5. Save your function code
 ![Save function code](media/api-new-function-code.png)
+---
 6. Click on Integation
 ![Integration Step 1](media/api-integation-step1.png)
+---
 7. Configure Azure Blob Storage Output
 ![Integration Step 2](media/api-integration-step2.png)
+---
 8. Configure Azure Function settings
    - Get your Azure Storage Account Connection String [click here for steps](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
+   - Navigate to Azure Function App Configuration
+     ![Azure Function Configuration Step 1](media/api-azure-function-configure-step1.png)
+   - Copy your storage account connection string to the settings
+    ![Azure Function Configuration Step 2](media/api-azure-function-configure-step2.png)
+   
 
 
 
